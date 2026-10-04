@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduCore – Apply to university & bursaries</title>
+<meta name="description" content="Check your APS, find courses, and apply for NSFAS and bursaries. Free for South African students.">
+<meta name="theme-color" content="#0B2545">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<header class="top"><div class="ubuntu" aria-hidden="true"></div>
+<div class="bar">
+<a class="logo" href="#home"><svg class="protea" viewBox="0 0 40 40" aria-hidden="true"><g fill="#C9A227"><ellipse cx="20" cy="12" rx="4" ry="10"/><ellipse cx="20" cy="12" rx="4" ry="10" transform="rotate(40 20 24)"/><ellipse cx="20" cy="12" rx="4" ry="10" transform="rotate(-40 20 24)"/><ellipse cx="20" cy="12" rx="4" ry="10" transform="rotate(75 20 24)"/><ellipse cx="20" cy="12" rx="4" ry="10" transform="rotate(-75 20 24)"/></g><circle cx="20" cy="24" r="7" fill="#12B886"/></svg><span>Edu<b>Core</b></span></a>
+<div class="tools">
+<label class="sr" for="lang">Language</label>
+<select id="lang"><option value="en">English</option><option value="zu">isiZulu</option><option value="st">Sesotho</option><option value="af">Afrikaans</option></select>
+<button id="lowdata" aria-pressed="false" title="Low-data mode">Low data</button>
+<button id="bigtext" aria-pressed="false" title="Larger text">A+</button>
+<button id="contrast" aria-pressed="false" title="High contrast">◐</button>
+</div></div>
+<nav aria-label="Main"><a href="#home" data-i18n="n_home">Home</a><a href="#institutions" data-i18n="n_inst">Institutions</a><a href="#aps" data-i18n="n_aps">APS</a><a href="#quiz" data-i18n="n_quiz">Quiz</a><a href="#bursaries" data-i18n="n_bur">Bursaries</a><a href="#guides" data-i18n="n_guides">Guides</a><a href="#dashboard" data-i18n="n_dash">My plan</a></nav>
+</header>
+<main id="main" tabindex="-1">
+
+<section id="home" class="view"><div class="hero">
+<h1 data-i18n="h_title">Your future starts here. Let’s find your path.</h1>
+<p data-i18n="h_sub">Free tools to check your APS, pick a course and apply for funding. Built for South African students.</p>
+<div class="ctas">
+<a class="cta gold" href="#aps" data-i18n="c_aps">Calculate my APS</a>
+<a class="cta" href="#bursaries" data-i18n="c_nsfas">Apply for NSFAS</a>
+<a class="cta ghost" href="#quiz" data-i18n="c_quiz">Find my course</a>
+<a class="cta ghost" href="#institutions" data-i18n="c_inst">Search institutions</a>
+</div></div>
+<p class="ubuntu-line" data-i18n="ubuntu">Umuntu ngumuntu ngabantu – we rise together.</p>
+<div class="grid3"><div class="card"><h3>1. Know your APS</h3><p>Enter your marks and see where you qualify.</p></div><div class="card"><h3>2. Choose a course</h3><p>Answer 6 quick questions for ideas.</p></div><div class="card"><h3>3. Fund and apply</h3><p>Step-by-step NSFAS and bursary guides.</p></div></div>
+</section>
+
+<section id="institutions" class="view" hidden><h2 data-i18n="n_inst">Institutions</h2>
+<p class="note">Search a university to open its website, or a course to see every university that offers it. APS values are indicative. Always confirm on the university’s official website.</p>
+<label class="sr" for="q">Search</label><input id="q" type="search" placeholder="Search a university (e.g. UJ) or a course (e.g. law)…">
+<p class="note" id="subjnote"></p>
+<label class="inline"><input type="checkbox" id="onlyqual"> Only show courses I qualify for (my APS: <span id="myaps">–</span>, plus my subjects)</label>
+<div id="instlist" class="list"></div></section>
+
+<section id="aps" class="view" hidden><h2 data-i18n="n_aps">APS calculator</h2>
+<p>Enter your mark (%) for each of your 7 subjects, including Life Orientation, and the level fills in for you. Or type the level (1–7) directly. Your APS is all the levels added together.</p>
+<h3>Your subject stream</h3><p>Pick a stream or tick your subjects. Courses will show what they need, and the ones you cannot take are greyed out.</p><div id="streams" class="row wrap"></div><div id="subjpick" class="chips"></div>
+<div class="row"><label class="sr" for="othername">Other subject</label><input id="othername" maxlength="40" placeholder="Other subject, e.g. Agricultural Sciences"><button type="button" id="addother" class="cta gold">Add other</button></div>
+<div id="otherlist" class="chips" aria-live="polite"></div>
+<p class="note">Add as many other subjects as you need. Courses check the subjects listed above; your other subjects are kept on your profile.</p>
+<form id="apsform" onsubmit="return false"><div id="subjects" class="subjects"></div></form>
+<div class="result" aria-live="polite"><span>Your APS</span><strong id="apsout">0</strong><small id="apsmsg"></small></div></section>
+
+<section id="quiz" class="view" hidden><h2 data-i18n="n_quiz">Course recommender</h2><div id="quizbox"></div></section>
+
+<section id="bursaries" class="view" hidden><h2 data-i18n="n_bur">Bursaries</h2>
+<article class="card feature"><h3>NSFAS – the main one</h3>
+<p>The National Student Financial Aid Scheme funds eligible students at public universities and TVET colleges.</p>
+<ul><li>Must be a South African citizen (or eligible permanent resident as per NSFAS rules).</li><li>Combined household income usually up to R350,000 a year.</li><li>Applications usually open in the second half of the year – check the official site for this year’s dates.</li><li>You apply once on myNSFAS, and also apply to your institution.</li></ul>
+<p><a class="cta gold" href="https://www.nsfas.org.za" target="_blank" rel="noopener">Go to NSFAS</a> <a class="cta ghost" href="#guides">NSFAS guide</a></p>
+<div class="vid" data-q="NSFAS application how to apply step by step"></div></article>
+<h3>Other bursaries</h3><div id="burlist" class="list"></div></section>
+
+<section id="guides" class="view" hidden><h2 data-i18n="n_guides">Guides</h2>
+<div class="grid3">
+<a class="card dl" href="guides/nsfas-application-guide.pdf" download><h3>NSFAS step-by-step</h3><p>PDF · checklist and tips</p></a>
+<a class="card dl" href="guides/university-application-guide.pdf" download><h3>University application</h3><p>PDF · from APS to submit</p></a>
+<a class="card dl" href="guides/bursary-checklist.pdf" download><h3>Bursary checklist</h3><p>PDF · documents to prepare</p></a></div>
+<h3>Video guides</h3><div class="grid3">
+<div class="vid" data-q="how to calculate APS score South Africa"></div>
+<div class="vid" data-q="how to apply to university South Africa"></div>
+<div class="vid" data-q="NSFAS online application tutorial"></div></div></section>
+
+<section id="dashboard" class="view" hidden><h2 data-i18n="n_dash">My plan</h2>
+<p class="note">Saved on this device only. No account needed.</p>
+<h3>Favourites</h3><div id="favs" class="list"></div>
+<h3>Application tracker</h3>
+<div class="row"><input id="appname" placeholder="e.g. UJ – BCom Accounting"><button class="cta gold" id="addapp">Add</button></div>
+<div id="apps" class="list"></div></section>
+</main>
+<footer><p>Made with Ubuntu in South Africa. EduCore is an independent guide, not affiliated with NSFAS or any institution.</p></footer>
+<script src="app.js"></script>
+</body></html>
